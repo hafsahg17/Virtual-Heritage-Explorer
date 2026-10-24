@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Virtual Heritage Explorer | Discover India's Heritage</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f3ec;
+    color: #30271f;
+}
+
+header {
+    background: #30271f;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #e9bd72;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #e9bd72;
+}
+
+.hero {
+    min-height: 650px;
+    padding: 90px 8%;
+    display: flex;
+    align-items: center;
+    color: white;
+
+    background:
+    linear-gradient(90deg, #211810e8, #21181035),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Stone%20Chariot%20of%20Vitthala%20Temple%20Hampi.jpg?width=1800")
+    center / cover;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.eyebrow {
+    color: #e9bd72;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 7vw, 82px);
+    line-height: 1.1;
+    margin: 25px 0;
+}
+
+.hero p {
+    color: #eee4d8;
+    max-width: 600px;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.button {
+    display: inline-block;
+    background: #e9bd72;
+    color: #30251c;
+    padding: 15px 27px;
+    border-radius: 30px;
+    margin-top: 28px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #f5d69e;
+    transform: translateY(-3px);
+}
+
+.section {
+    padding: 90px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 45px);
+    margin: 17px 0;
+}
+
+.section-heading p {
+    color: #74685c;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.card {
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid #e8dfd3;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px #30271f16;
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 27px;
+}
+
+.card-content .location {
+    color: #a77b41;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin: 12px 0;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #74685c;
+    line-height: 1.8;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 23px;
+    color: #754a2b;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.card-link:hover {
+    color: #b17b35;
+}
+
+.about {
+    background: #e9e0d3;
+    text-align: center;
+}
+
+.about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 22px;
+}
+
+.about p {
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.9;
+    color: #65594d;
+}
+
+footer {
+    background: #211a14;
+    color: #e8ded0;
+    padding: 35px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+footer p {
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+footer a {
+    color: #e9bd72;
+    text-decoration: none;
+}
+
+@media (max-width: 850px) {
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    .hero {
+        min-height: 570px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 260px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a class="logo" href="index.html">
+        Virtual Heritage Explorer
+    </a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#sites">Heritage Sites</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Discover India's Cultural Treasures
+        </div>
+
+        <h1>Discover India's Heritage</h1>
+
+        <p>
+            Travel through time and explore India's
+            magnificent monuments, royal palaces,
+            ancient temples, and fascinating stories
+            through an immersive digital experience.
+        </p>
+
+        <a href="#sites" class="button">
+            Explore Heritage →
+        </a>
+
+    </div>
+</section>
+
+<section class="section" id="sites">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">Explore • Discover • Experience</div>
+
+        <h2>Explore Heritage Sites</h2>
+
+        <p>
+            Choose a monument and discover its history,
+            architecture, beautiful photographs,
+            and cultural significance.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <!-- HAMPI CARD -->
+
+        <article class="card">
+
+            <a href="hampi.html">
+                <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Stone%20Chariot%20of%20Vitthala%20Temple%20Hampi.jpg?width=1000"
+                alt="Hampi Stone Chariot">
+            </a>
+
+            <div class="card-content">
+
+                <div class="location">
+                    Karnataka • Ancient Empire
+                </div>
+
+                <h3>Hampi</h3>
+
+                <p>
+                    Explore the magnificent ruins of
+                    the Vijayanagara Empire and discover
+                    the iconic Stone Chariot.
+                </p>
+
+                <a href="hampi.html" class="card-link">
+                    Explore Hampi →
+                </a>
+
+            </div>
+        </article>
+
+        <!-- MYSORE PALACE CARD -->
+
+        <article class="card">
+
+            <a href="mysore.html">
+                <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Mysore%20Palace-Mysore.jpg?width=1000"
+                alt="Mysore Palace">
+            </a>
+
+            <div class="card-content">
+
+                <div class="location">
+                    Karnataka • Royal Heritage
+                </div>
+
+                <h3>Mysore Palace</h3>
+
+                <p>
+                    Step into the royal world of
+                    the Wadiyar dynasty and admire
+                    the palace's magnificent architecture.
+                </p>
+
+                <a href="mysore.html" class="card-link">
+                    Explore Mysore Palace →
+                </a>
+
+            </div>
+        </article>
+
+        <!-- TAJ MAHAL CARD -->
+
+        <article class="card">
+
+            <a href="tajmahal.html">
+                <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Taj-Mahal.jpg?width=1000"
+                alt="Taj Mahal">
+            </a>
+
+            <div class="card-content">
+
+                <div class="location">
+                    Agra • Mughal Heritage
+                </div>
+
+                <h3>Taj Mahal</h3>
+
+                <p>
+                    Discover the iconic white marble
+                    monument built by Shah Jahan
+                    in memory of Mumtaz Mahal.
+                </p>
+
+                <a href="tajmahal.html" class="card-link">
+                    Explore Taj Mahal →
+                </a>
+
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="section about" id="about">
+
+    <div class="eyebrow">Our Mission</div>
+
+    <h2>Preserving History Through Technology</h2>
+
+    <p>
+        Virtual Heritage Explorer is a digital
+        heritage project designed to make historical
+        monuments accessible to everyone.
+
+        Through photographs, historical information,
+        and interactive technologies such as augmented
+        reality, visitors can explore India's
+        cultural treasures in an engaging way.
+    </p>
+
+</section>
+
+<footer>
+
+    <div>
+        <strong>Virtual Heritage Explorer</strong>
+        <p>Discover • Preserve • Experience</p>
+    </div>
+
+    <a href="#home">Back to Top ↑</a>
+
+</footer>
+
+</body>
+</html>

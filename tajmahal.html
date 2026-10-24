@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taj Mahal | Virtual Heritage Explorer</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500,700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: #f7f3ec; color: #30271f; }
+
+header {
+    padding: 20px 8%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+header a { color: #754a2b; text-decoration: none; font-weight: 700; }
+
+.hero {
+    min-height: 600px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    color: white;
+    background:
+    linear-gradient(90deg, #211810e8, #21181030),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Taj-Mahal.jpg?width=1800")
+    center/cover;
+}
+.hero-content { max-width: 700px; }
+.eyebrow { color: #e9bd72; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
+.hero h1 { font-size: clamp(42px, 6vw, 75px); line-height: 1.1; margin: 25px 0; }
+.hero p { line-height: 1.9; color: #f1e8dd; max-width: 600px; }
+
+.button {
+    display: inline-block;
+    background: #e9bd72;
+    color: #30251c;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: none;
+    margin-top: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.section { padding: 80px 8%; }
+.section h2 { font-size: clamp(30px, 4vw, 42px); margin: 18px 0; }
+.section p { color: #6f665b; line-height: 1.9; }
+
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 35px; }
+.fact { background: white; padding: 25px; border-radius: 18px; border: 1px solid #e7ded1; }
+.fact h3 { color: #754a2b; margin-bottom: 12px; }
+
+.gallery { background: #e9e0d3; }
+.gallery-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-top: 30px; }
+.gallery-grid img { width: 100%; height: 400px; object-fit: cover; border-radius: 18px; }
+.small-images { display: grid; grid-template-rows: 1fr 1fr; gap: 20px; }
+.small-images img { height: 190px; }
+
+.voice-section { padding: 80px 8%; text-align: center; background: #30271f; color: white; }
+.voice-section h2 { font-size: clamp(30px, 5vw, 44px); margin: 20px 0; }
+.voice-section p { color: #d9cfc0; line-height: 1.8; }
+.voice-card { max-width: 800px; margin: 35px auto 0; background: #42352a; padding: 35px; border-radius: 25px; border: 1px solid #66513b; }
+.voice-icon { font-size: 45px; margin-bottom: 15px; }
+.voice-card h3 { font-size: 27px; margin-bottom: 15px; }
+.voice-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 25px; }
+.voice-buttons button { border: none; border-radius: 30px; padding: 14px 22px; cursor: pointer; font-weight: 700; }
+.listen-button { background: #e9bd72; color: #30251c; }
+.control-button { background: #f7f3ec; color: #30271f; }
+.voice-status { color: #e9bd72; margin-top: 22px; font-size: 13px; }
+
+/* AR section added from the Hampi code */
+.ar-section {
+    text-align: center;
+    background: #30271f;
+    color: white;
+    padding: 75px 8%;
+}
+
+.ar-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.ar-section p {
+    max-width: 680px;
+    margin: auto;
+    line-height: 1.8;
+    color: #d9cfc0;
+}
+
+footer { padding: 28px 8%; background: #211a14; color: #e8ded0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+footer a { color: #e9bd72; text-decoration: none; }
+
+@media(max-width:700px) {
+    .facts { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-grid img { height: 280px; }
+    .small-images img { height: 230px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">← Virtual Heritage Explorer</a>
+    <a href="#history">Discover Taj Mahal</a>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="eyebrow">Agra • Uttar Pradesh • Mughal Heritage</div>
+        <h1>Taj Mahal<br>A Timeless Symbol of Love</h1>
+        <p>Discover the beauty of the Taj Mahal, its Mughal architecture, fascinating history, and extraordinary marble craftsmanship.</p>
+        <a href="#history" class="button">Explore Its History ↓</a>
+    </div>
+</section>
+
+<section class="section" id="history">
+    <div class="eyebrow">A Monument of Eternal Love</div>
+    <h2>The Story of the Taj Mahal</h2>
+    <p>
+        The Taj Mahal was commissioned by Mughal Emperor
+        Shah Jahan in memory of his wife Mumtaz Mahal.
+        Construction began in 1632 and continued for
+        several years. The monument is famous for its
+        white marble architecture, symmetrical gardens,
+        beautiful calligraphy, and detailed stone inlay
+        work. It stands beside the Yamuna River in Agra
+        and represents a remarkable achievement of
+        Mughal architecture.
+    </p>
+
+    <div class="facts">
+        <div class="fact">
+            <h3>Historical Period</h3>
+            <p>Built during the Mughal Empire in the 17th century under Emperor Shah Jahan.</p>
+        </div>
+        <div class="fact">
+            <h3>Architecture</h3>
+            <p>A masterpiece of Mughal architecture combining Persian, Islamic, and Indian artistic influences.</p>
+        </div>
+        <div class="fact">
+            <h3>UNESCO Heritage</h3>
+            <p>The Taj Mahal was inscribed on the UNESCO World Heritage List in 1983.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section gallery">
+    <div class="eyebrow">Explore The Monument</div>
+    <h2>Discover the Beauty of the Taj Mahal</h2>
+    <p>Admire the magnificent marble dome, grand entrance, and architectural details of this iconic monument.</p>
+
+    <div class="gallery-grid">
+        <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Taj-Mahal.jpg?width=1200"
+        alt="Taj Mahal in Agra">
+
+        <div class="small-images">
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Taj%20Mahal%20in%20Agra.jpg?width=1000"
+            alt="Taj Mahal architecture">
+
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Taj%20Mahal%20Agra.jpg?width=1000"
+            alt="Taj Mahal marble monument">
+        </div>
+    </div>
+</section>
+
+<section class="voice-section" id="voice">
+    <div class="eyebrow">Listen • Learn • Discover</div>
+    <h2>Hear the Story of the Taj Mahal</h2>
+    <p>Listen to the history, architecture, and cultural importance of this iconic monument.</p>
+
+    <div class="voice-card">
+        <div class="voice-icon">🎧</div>
+        <h3>Discover a Timeless Monument</h3>
+        <p>Experience the Taj Mahal through an informative audio narration.</p>
+
+        <div class="voice-buttons">
+            <button class="listen-button" id="listen-btn">▶ Listen to History</button>
+            <button class="control-button" id="pause-btn">⏸ Pause</button>
+            <button class="control-button" id="stop-btn">■ Stop</button>
+        </div>
+        <div class="voice-status" id="voice-status">Ready to listen</div>
+    </div>
+</section>
+
+<!-- AR button section added -->
+<section class="ar-section">
+    <h2>Experience the Taj Mahal in Augmented Reality</h2>
+
+    <p>
+        Bring history into your surroundings.
+        Explore the Taj Mahal through an interactive
+        AR experience using your smartphone.
+    </p>
+
+    <button class="button"
+    onclick="alert('Unity AR experience will be connected here!')">
+        Launch AR Experience ↗
+    </button>
+</section>
+
+<footer>
+    <div>
+        <strong>Virtual Heritage Explorer</strong>
+        <p>Discover • Preserve • Experience</p>
+    </div>
+    <a href="index.html">Back to Home ↑</a>
+</footer>
+
+<script>
+const narration = `
+Welcome to the Taj Mahal, one of the
+most famous monuments in the world.
+
+Located in Agra, Uttar Pradesh, the Taj Mahal
+was commissioned by Mughal Emperor Shah Jahan
+in memory of his wife Mumtaz Mahal.
+
+Construction began in sixteen thirty two
+and continued for several years.
+
+The monument is famous for its beautiful
+white marble, grand dome, symmetrical
+gardens, and detailed stone decorations.
+
+Its architecture combines Persian,
+Islamic, and Indian artistic influences.
+
+The Taj Mahal stands beside the Yamuna
+River and is admired by visitors from
+around the world.
+
+It was recognized as a UNESCO World
+Heritage Site in nineteen eighty three.
+
+As you explore the Taj Mahal, discover
+the history, craftsmanship, and cultural
+importance of this extraordinary monument.
+
+Thank you for exploring the Taj Mahal
+with Virtual Heritage Explorer.
+`;
+</script>
+
+<script>
+const speech = window.speechSynthesis;
+let selectedVoice = null;
+
+const listenButton = document.getElementById("listen-btn");
+const pauseButton = document.getElementById("pause-btn");
+const stopButton = document.getElementById("stop-btn");
+const status = document.getElementById("voice-status");
+
+function loadVoice() {
+    const voices = speech.getVoices();
+
+    selectedVoice =
+        voices.find(v => v.lang.toLowerCase() === "en-in") ||
+        voices.find(v => v.lang.toLowerCase().startsWith("en")) ||
+        null;
+}
+
+loadVoice();
+speech.onvoiceschanged = loadVoice;
+
+listenButton.addEventListener("click", () => {
+    speech.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(narration);
+    utterance.lang = selectedVoice ? selectedVoice.lang : "en-IN";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    if (selectedVoice) utterance.voice = selectedVoice;
+
+    utterance.onstart = () => status.textContent = "🔊 Narration is playing...";
+    utterance.onend = () => {
+        status.textContent = "Narration completed!";
+        pauseButton.textContent = "⏸ Pause";
+    };
+    utterance.onerror = e => {
+        if (e.error !== "canceled" && e.error !== "interrupted")
+            status.textContent = "Unable to play narration.";
+    };
+
+    pauseButton.textContent = "⏸ Pause";
+    speech.speak(utterance);
+});
+
+pauseButton.addEventListener("click", () => {
+    if (speech.speaking && !speech.paused) {
+        speech.pause();
+        pauseButton.textContent = "▶ Resume";
+        status.textContent = "Narration paused.";
+    } else if (speech.paused) {
+        speech.resume();
+        pauseButton.textContent = "⏸ Pause";
+        status.textContent = "Narration resumed.";
+    }
+});
+
+stopButton.addEventListener("click", () => {
+    speech.cancel();
+    pauseButton.textContent = "⏸ Pause";
+    status.textContent = "Narration stopped.";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,541 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mysore Palace | Virtual Heritage Explorer</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500,700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f3ec;
+    color: #30271f;
+}
+
+header {
+    padding: 20px 8%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header a {
+    color: #754a2b;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.hero {
+    min-height: 600px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    color: white;
+    background:
+    linear-gradient(90deg, #211810e8, #21181030),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Mysore%20Palace-Mysore.jpg?width=1800")
+    center/cover;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.eyebrow {
+    color: #e9bd72;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 75px);
+    line-height: 1.1;
+    margin: 25px 0;
+}
+
+.hero p {
+    line-height: 1.9;
+    color: #f1e8dd;
+    max-width: 600px;
+}
+
+.button {
+    display: inline-block;
+    background: #e9bd72;
+    color: #30251c;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: none;
+    margin-top: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.section {
+    padding: 80px 8%;
+}
+
+.section h2 {
+    font-size: clamp(30px, 4vw, 42px);
+    margin: 18px 0;
+}
+
+.section p {
+    color: #6f665b;
+    line-height: 1.9;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #e7ded1;
+}
+
+.fact h3 {
+    color: #754a2b;
+    margin-bottom: 12px;
+}
+
+.gallery {
+    background: #e9e0d3;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.small-images {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.small-images img {
+    height: 190px;
+}
+
+.voice-section {
+    padding: 80px 8%;
+    text-align: center;
+    background: #30271f;
+    color: white;
+}
+
+.voice-section h2 {
+    font-size: clamp(30px, 5vw, 44px);
+    margin: 20px 0;
+}
+
+.voice-section p {
+    color: #d9cfc0;
+    line-height: 1.8;
+}
+
+.voice-card {
+    max-width: 800px;
+    margin: 35px auto 0;
+    background: #42352a;
+    padding: 35px;
+    border-radius: 25px;
+    border: 1px solid #66513b;
+}
+
+.voice-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.voice-card h3 {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.voice-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.voice-buttons button {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 22px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.listen-button {
+    background: #e9bd72;
+    color: #30251c;
+}
+
+.control-button {
+    background: #f7f3ec;
+    color: #30271f;
+}
+
+.voice-status {
+    color: #e9bd72;
+    margin-top: 22px;
+    font-size: 13px;
+}
+
+/* AR section added */
+.ar-section {
+    text-align: center;
+    background: #30271f;
+    color: white;
+    padding: 75px 8%;
+}
+
+.ar-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.ar-section p {
+    max-width: 680px;
+    margin: auto;
+    line-height: 1.8;
+    color: #d9cfc0;
+}
+
+footer {
+    padding: 28px 8%;
+    background: #211a14;
+    color: #e8ded0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer a {
+    color: #e9bd72;
+    text-decoration: none;
+}
+
+@media(max-width:700px) {
+    .facts {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid img {
+        height: 280px;
+    }
+
+    .small-images img {
+        height: 230px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">← Virtual Heritage Explorer</a>
+    <a href="#history">Discover Mysore</a>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="eyebrow">Mysuru • Karnataka • Royal Heritage</div>
+
+        <h1>Mysore Palace<br>The Royal Grandeur</h1>
+
+        <p>
+            Step into the magnificent world of Mysore Palace.
+            Discover its royal history, stunning architecture,
+            and the traditions of the Wadiyar dynasty.
+        </p>
+
+        <a href="#history" class="button">Explore the Palace ↓</a>
+    </div>
+</section>
+
+<section class="section" id="history">
+    <div class="eyebrow">A Royal Legacy</div>
+
+    <h2>History of Mysore Palace</h2>
+
+    <p>
+        Mysore Palace, also known as Amba Vilas Palace,
+        is one of India's celebrated royal residences.
+        The present palace was completed in 1912 and is
+        closely associated with the Wadiyar royal family.
+        Its architecture combines Indo-Saracenic and
+        traditional Indian design influences. Grand halls,
+        colourful glasswork, decorated interiors, and
+        elegant domes make the palace remarkable.
+    </p>
+
+    <div class="facts">
+        <div class="fact">
+            <h3>Royal Residence</h3>
+            <p>
+                The palace is closely connected with the
+                Wadiyar dynasty and the history of the
+                Mysore Kingdom.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>Architecture</h3>
+            <p>
+                Its architecture combines Indo-Saracenic
+                style with traditional Indian design elements.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>Dasara Festival</h3>
+            <p>
+                Mysore Palace is a major centre of the
+            famous Mysuru Dasara celebrations.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section gallery">
+    <div class="eyebrow">Explore The Royal Palace</div>
+
+    <h2>Discover Mysore's Beauty</h2>
+
+    <p>
+        Explore the impressive exterior and beautiful
+        architectural details of the palace.
+    </p>
+
+    <div class="gallery-grid">
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Mysore%20Palace-Mysore.jpg?width=1200"
+            alt="Mysore Palace">
+
+        <div class="small-images">
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Mysore%20Palace.jpg?width=1000"
+                alt="Mysore Palace architecture">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Mysore%20palace%20illuminated.jpg?width=1000"
+                alt="Illuminated Mysore Palace">
+        </div>
+    </div>
+</section>
+
+<section class="voice-section" id="voice">
+    <div class="eyebrow">Listen • Learn • Discover</div>
+
+    <h2>Hear the Story of Mysore Palace</h2>
+
+    <p>
+        Listen to the history and royal traditions
+        of this magnificent palace.
+    </p>
+
+    <div class="voice-card">
+        <div class="voice-icon">🎧</div>
+
+        <h3>Discover the Royal Heritage</h3>
+
+        <p>
+            Experience the palace through an informative
+            audio narration.
+        </p>
+
+        <div class="voice-buttons">
+            <button class="listen-button" id="listen-btn">
+                ▶ Listen to History
+            </button>
+
+            <button class="control-button" id="pause-btn">
+                ⏸ Pause
+            </button>
+
+            <button class="control-button" id="stop-btn">
+                ■ Stop
+            </button>
+        </div>
+
+        <div class="voice-status" id="voice-status">
+            Ready to listen
+        </div>
+    </div>
+</section>
+
+<!-- AR button section added -->
+<section class="ar-section">
+    <h2>Experience Mysore Palace in Augmented Reality</h2>
+
+    <p>
+        Bring history into your surroundings.
+        Explore Mysore Palace through an interactive
+        AR experience using your smartphone.
+    </p>
+
+    <button class="button"
+        onclick="alert('Unity AR experience will be connected here!')">
+        Launch AR Experience ↗
+    </button>
+</section>
+
+<footer>
+    <div>
+        <strong>Virtual Heritage Explorer</strong>
+        <p>Discover • Preserve • Experience</p>
+    </div>
+
+    <a href="index.html">Back to Home ↑</a>
+</footer>
+
+<script>
+const narration = `
+Welcome to Mysore Palace, one of India's
+most beautiful royal monuments.
+
+Located in Mysuru, Karnataka, the palace is
+also known as Amba Vilas Palace.
+
+The present palace was completed in nineteen
+twelve and is closely associated with the
+Wadiyar royal family.
+
+The palace is famous for its grand halls,
+colourful decorations, beautiful domes,
+and magnificent architectural details.
+
+Its architecture combines Indian and
+Indo-Saracenic influences, creating
+a unique and impressive royal residence.
+
+Mysore Palace is especially famous during
+the Mysuru Dasara festival, when the palace
+becomes a centre of celebrations and cultural
+activities.
+
+As you explore this palace, imagine the
+royal ceremonies and traditions that
+once took place within its walls.
+
+Thank you for exploring Mysore Palace
+with Virtual Heritage Explorer.
+`;
+</script>
+
+<script>
+const speech = window.speechSynthesis;
+let selectedVoice = null;
+
+const listenButton = document.getElementById("listen-btn");
+const pauseButton = document.getElementById("pause-btn");
+const stopButton = document.getElementById("stop-btn");
+const status = document.getElementById("voice-status");
+
+function loadVoice() {
+    const voices = speech.getVoices();
+
+    selectedVoice =
+        voices.find(v => v.lang.toLowerCase() === "en-in") ||
+        voices.find(v => v.lang.toLowerCase().startsWith("en")) ||
+        null;
+}
+
+loadVoice();
+speech.onvoiceschanged = loadVoice;
+
+listenButton.addEventListener("click", () => {
+    speech.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(narration);
+    utterance.lang = selectedVoice ? selectedVoice.lang : "en-IN";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    if (selectedVoice) utterance.voice = selectedVoice;
+
+    utterance.onstart = () => status.textContent = "🔊 Narration is playing...";
+
+    utterance.onend = () => {
+        status.textContent = "Narration completed!";
+        pauseButton.textContent = "⏸ Pause";
+    };
+
+    utterance.onerror = e => {
+        if (e.error !== "canceled" && e.error !== "interrupted")
+            status.textContent = "Unable to play narration.";
+    };
+
+    pauseButton.textContent = "⏸ Pause";
+    speech.speak(utterance);
+});
+
+pauseButton.addEventListener("click", () => {
+    if (speech.speaking && !speech.paused) {
+        speech.pause();
+        pauseButton.textContent = "▶ Resume";
+        status.textContent = "Narration paused.";
+    } else if (speech.paused) {
+        speech.resume();
+        pauseButton.textContent = "⏸ Pause";
+        status.textContent = "Narration resumed.";
+    }
+});
+
+stopButton.addEventListener("click", () => {
+    speech.cancel();
+    pauseButton.textContent = "⏸ Pause";
+    status.textContent = "Narration stopped.";
+});
+</script>
+
+</body>
+</html>
